@@ -1,0 +1,54 @@
+sudo: required
+dist: trusty
+language: ruby
+
+before_install:
+- gem install asciidoctor -v 1.5.2
+- gem install tilt
+- sudo -H pip install git+https://github.com/gitenberg-dev/gitberg-build
+- sudo -H pip install git+https://github.com/gitenberg-dev/pg-epubmaker
+script:
+- VERSION=`ruby -e "require 'yaml'; meta = YAML.load_file('metadata.yaml'); puts meta['_version'];"`
+- git clone https://github.com/gitenberg-dev/asciidoctor-htmlbook.git
+- sudo -H pip install -r asciidoctor-htmlbook/gitberg-machine/requirements.txt
+
+- /usr/bin/python -c "from gitenberg import travis; travis.build_epub()"
+- ebook-convert book.epub book.mobi
+- xvfb-run ebook-convert book.epub book.pdf
+notifications:
+  webhooks:
+    urls:
+      - https://unglue.it/api/travisci/webhook
+    on_success: always
+    on_failure: never
+    on_start: never
+deploy:
+  skip_cleanup: true
+  provider: releases
+  api_key:
+    secure: Fuocptlr0uCnAqDiZHVYYbPqxOTvz02RAzW9PDa7bVWctq1FCzcAyJXeBNDZCEogXtMFURe8FE0TXWK5bTsL2yScHEO7mSpCRCmXbJxQh6o+GBUKzAzcNnGQ2HEHNn3MblN4TIw00/s4U/rmkZCnn4EOnVowVT7jveIvxv0BNbVF7BCQmaD5IcOGUCtE8Hdl1QESLlZySjcO8suvxDcBFHM2+PSBodzwgOlL89X2JzdmVdRScmfcEC3PIx5GrKDu+wjo8UuqXN4oxr4SvJwi+rJVLSGFkJjH264/FB+jzi6d/MMaQXqVOmSx7frXB5A04L86MBLEcbUu7UMMlHVU/ISzUrwDCstD/3ch+TKmN6lAoEwSnZOreOyV/AbBwK5Y3T2JywQt/D1smMeV+p0Hjq9ZQEJje1zad2PnJ6IbRFfGXtB3ZxJQUKzmcACkQO9K6/PlcuuMrqJB8NTA4mSMNoKkqd7CS4QlTATXViQrqJCgtyEEfROyLzI/cbp9CRN+kvI8881CxM0oypedLS4/OQgheV4b0ZehVctl0EsvgnEMkhS1HznpPUkaJTs2p4v16sMziop/H4U26HYpW4HoO5OFccwVW0VPSVBQ/BD51VcfuRgvPwe35UWBAgq7VH/C1OOsTLL5kyodlyXymB9Z/hk+CgB4GWzgMcuwE5yNBao=
+  file:
+    - book.epub
+    - book.mobi
+    - book.pdf
+  on:
+    repo: GITenberg/Die-Lobensteiner-reisen-nach-B-hmenZw-lf-Novellen-und-Geschichten_36779
+    tags: true
+addons:
+  apt:
+    packages:
+    - xsltproc
+    - xvfb
+    - calibre
+    - python-pip
+    - git
+    - python-dev
+    - libjpeg-dev
+    - libpng-dev
+    - libfreetype6
+    - libfreetype6-dev
+    - zlib1g-dev
+    - python-lxml
+    - libxml2-dev
+    - libxslt1-dev
+    - tidy

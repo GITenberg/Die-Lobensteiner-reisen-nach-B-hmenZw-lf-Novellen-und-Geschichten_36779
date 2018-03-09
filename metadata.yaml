@@ -1,0 +1,36 @@
+_repo: Die-Lobensteiner-reisen-nach-B-hmenZw-lf-Novellen-und-Geschichten_36779
+_version: 0.0.1
+creator:
+  author:
+    agent_name: Döblin, Alfred
+    aliases:
+    - Doeblin, Alfred
+    - Doblin, Alfred
+    - Deblin, A.
+    - Poot, Linke
+    birthdate: 1878
+    deathdate: 1957
+    gutenberg_agent_id: '35387'
+    url: http://www.gutenberg.org/2009/agents/35387
+    wikipedia: http://de.wikipedia.org/wiki/Alfred_D%C3%B6blin
+description: ''
+gutenberg_bookshelf: DE Prosa
+gutenberg_issued: '2011-07-20'
+gutenberg_type: Text
+identifiers:
+  gutenberg: '36779'
+language: de
+publisher: Project Gutenberg
+rights: Public domain in the USA.
+rights_url: http://creativecommons.org/about/pdm
+subjects:
+- !lcc 'PT'
+- !lcsh 'German fiction'
+- !lcsh 'Short stories, German'
+- GITenberg
+tableOfContents: Linie Dresden-Bukarest -- Das Femgericht -- Die Schlacht, die Schlacht!
+  -- Der Kaplan -- Die Nachtwandlerin -- Von der himmlischen Gnade -- Vom Hinzel und
+  dem wilden Lenchen -- Der Riese Wenzel -- Das Krokodil -- Das Gespenst vom Ritthof
+  -- Der vertauschte Knecht -- Die Lobensteiner reisen nach Böhmen.
+title: 'Die Lobensteiner reisen nach Böhmen: Zwölf Novellen und Geschichten'
+url: http://www.gutenberg.org/ebooks/36779
