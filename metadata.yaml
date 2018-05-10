@@ -17,6 +17,8 @@ creator:
     url: http://www.gutenberg.org/2009/agents/35387
     wikipedia: http://de.wikipedia.org/wiki/Alfred_D%C3%B6blin
 description: ''
+edition_identifiers:
+  edition_id: http://www.gutenberg.org/ebooks/36779#Die-Lobensteiner-reisen-nach-B-hmenZw-lf-Novellen-und-Geschichten
 gutenberg_bookshelf: DE Prosa
 gutenberg_issued: '2011-07-20'
 gutenberg_type: Text
